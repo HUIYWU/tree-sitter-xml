@@ -66,11 +66,6 @@
     }
   },
   {
-    "type": "comment",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "element",
     "named": true,
     "fields": {},
@@ -372,6 +367,7 @@
   {
     "type": "xml_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -444,10 +440,6 @@
     "named": false
   },
   {
-    "type": "-->",
-    "named": false
-  },
-  {
     "type": "/",
     "named": false
   },
@@ -461,10 +453,6 @@
   },
   {
     "type": "<",
-    "named": false
-  },
-  {
-    "type": "<!--",
     "named": false
   },
   {
@@ -493,6 +481,10 @@
   },
   {
     "type": "char_ref",
+    "named": true
+  },
+  {
+    "type": "comment",
     "named": true
   },
   {

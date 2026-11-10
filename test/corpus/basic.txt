@@ -93,7 +93,6 @@ Test element with children
             attr_name: (name)
             (eq)
             (attr_value))))
-      (char_data)
     (element
       (empty_element
         tag_name: (name)
@@ -115,7 +114,6 @@ Test element with children
             attr_name: (name)
             (eq)
             (attr_value)))))
-      (char_data)
       (element
         (empty_element
           tag_name: (name)
@@ -137,6 +135,5 @@ Test element with children
               attr_name: (name)
               (eq)
               (attr_value)))))
-      (char_data)
       (tag_end
         tag_name: (name)))))

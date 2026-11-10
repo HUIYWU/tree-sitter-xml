@@ -1,0 +1,79 @@
+===
+Test prolog comment between XML declaration and root element
+===
+
+<?xml version="1.0" encoding="utf-8"?>
+<!-- a comment -->
+<root/>
+
+---
+
+(xml_file
+  (xml_decl
+    (xml_version
+      (eq)
+      (xml_version_value))
+    (xml_encoding
+      (eq)
+      (xml_encoding_value)))
+  (comment)
+  (element
+    (empty_element
+      tag_name: (name))))
+
+===
+Test prolog multiline comment containing an empty element
+===
+
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~   <a/>.
+  -->
+<root/>
+
+---
+
+(xml_file
+  (xml_decl
+    (xml_version
+      (eq)
+      (xml_version_value))
+    (xml_encoding
+      (eq)
+      (xml_encoding_value)))
+  (comment)
+  (element
+    (empty_element
+      tag_name: (name))))
+
+===
+Test prolog processing instruction and epilog comment
+===
+
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="style.xsl"?>
+<!-- before root -->
+<root>text</root>
+<!-- after root -->
+
+---
+
+(xml_file
+  (xml_decl
+    (xml_version
+      (eq)
+      (xml_version_value))
+    (xml_encoding
+      (eq)
+      (xml_encoding_value)))
+  (pi
+    (name))
+  (comment)
+  (element
+    (end_tag_element
+      (tag_start
+        tag_name: (name))
+      (char_data)
+      (tag_end
+        tag_name: (name))))
+  (comment))

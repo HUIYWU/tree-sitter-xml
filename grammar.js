@@ -8,6 +8,7 @@ module.exports = grammar({
     rules: {
         xml_file: $ => seq(
             optional($.xml_decl),
+            repeat($._misc),
             $.element,
             repeat($._misc)
         ),
@@ -147,9 +148,15 @@ module.exports = grammar({
 
         name: $ => token(/[A-Za-z_]([A-Za-z0-9_\-.])*/),
 
-        comment: $ => seq('<!--', repeat($._char), '-->'),
+        comment: $ => token(
+            seq(
+                '<!--',
+                repeat(choice(/[^-]/, /-[^-]/, /--[^>]/)),
+                '-->'
+            )
+        ),
 
-        char_data: $ => /[^<&\s]*/,
+        char_data: $ => /[^<&\s]+/,
         char_ref: $ => token(/(&#[0-9]+;)|(&#x[0-9a-fA-F]+;)/),
 
         cdata_sect: $ => seq(
@@ -177,7 +184,7 @@ module.exports = grammar({
 
         eq: $ => '=',
 
-        _misc: $ => choice($.pi, $.comment, $._char),
+        _misc: $ => choice($.pi, $.comment),
         _char: $ => /./,
         _ws: $ => /\s/,
         _quote: $ => choice('"', '\''),

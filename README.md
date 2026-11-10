@@ -1,6 +1,4 @@
 # tree-sitter-xml
-<a href="https://github.com/itsaky/AndroidIDE"><img src="https://androidide.com/github/img/androidide.php?part&for-the-badge"/></a>
-
 
 XML grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 

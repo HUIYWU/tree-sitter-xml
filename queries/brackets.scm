@@ -5,10 +5,10 @@
   "<?" @editor.brackets.open
   "?>" @editor.brackets.close)
 
-; for empty element tag, mark opening '<' and closing '/>' as brackets open and close
+; for empty element tag, mark opening '<' and closing '>' as brackets open and close
 (empty_element
   "<" @editor.brackets.open
-  "/>" @editor.brackets.close)
+  ">" @editor.brackets.close)
 
 ; in case of an element which has an end tag
 ; mark the tag name in tag_start as bracket open
